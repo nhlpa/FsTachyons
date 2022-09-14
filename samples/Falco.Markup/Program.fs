@@ -10,6 +10,8 @@ let master (title : string) (content : XmlNode list) =
     Elem.html [ Attr.lang "en" ] [
         Elem.head [] [
             Elem.title [] [ Text.raw title ]
+            // Include Tachyons CDN reference
+            Elem.link [ Attr.rel "stylesheet"; Attr.href TachyonsUrl.minified ]
         ]
         Elem.body [] content
     ]
