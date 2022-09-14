@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3E5CEC11-102A-4115-9CE5-FB4B5B25C772}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsTachyons", "src\FsTachyons\FsTachyons.fsproj", "{0F71C76D-2FA9-4DF8-B00D-621C0DBAC767}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{2FFDBEC4-F9BF-4781-B54D-3E1D3148285B}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsTachyons.Tests", "test\FsTachyons.Tests\FsTachyons.Tests.fsproj", "{B1A7C787-D733-4EB2-BD63-07E16CF72A6C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{3321A868-E0EB-4D58-AB43-6CB395B9BAE8}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsTachyons.Falco.Markup", "samples\Falco.Markup\FsTachyons.Falco.Markup.fsproj", "{BE2A5D92-62F9-4F74-AD0E-DBAE8E57C6E5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F71C76D-2FA9-4DF8-B00D-621C0DBAC767}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F71C76D-2FA9-4DF8-B00D-621C0DBAC767}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F71C76D-2FA9-4DF8-B00D-621C0DBAC767}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F71C76D-2FA9-4DF8-B00D-621C0DBAC767}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1A7C787-D733-4EB2-BD63-07E16CF72A6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1A7C787-D733-4EB2-BD63-07E16CF72A6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1A7C787-D733-4EB2-BD63-07E16CF72A6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1A7C787-D733-4EB2-BD63-07E16CF72A6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE2A5D92-62F9-4F74-AD0E-DBAE8E57C6E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE2A5D92-62F9-4F74-AD0E-DBAE8E57C6E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE2A5D92-62F9-4F74-AD0E-DBAE8E57C6E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE2A5D92-62F9-4F74-AD0E-DBAE8E57C6E5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0F71C76D-2FA9-4DF8-B00D-621C0DBAC767} = {3E5CEC11-102A-4115-9CE5-FB4B5B25C772}
+		{B1A7C787-D733-4EB2-BD63-07E16CF72A6C} = {2FFDBEC4-F9BF-4781-B54D-3E1D3148285B}
+		{BE2A5D92-62F9-4F74-AD0E-DBAE8E57C6E5} = {3321A868-E0EB-4D58-AB43-6CB395B9BAE8}
+	EndGlobalSection
+EndGlobal
