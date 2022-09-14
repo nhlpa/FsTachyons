@@ -1,2 +1,84 @@
 # FsTachyons
-F# API for the Tachyons CSS
+
+[![NuGet Version](https://img.shields.io/nuget/v/FsTachyons.svg)](https://www.nuget.org/packages/FsTachyons)
+[![Build Status](https://travis-ci.org/nhlpa/FsTachyons.svg?branch=master)](https://travis-ci.org/nhlpa/FsTachyons)
+
+```fsharp
+open Falco.Markup
+open FsTachyons
+
+Elem.h1 [ Attr.class' (tac [ Tac.f3; Tac.f1_m; Tac.f_headline_l ])]
+        [ Text.raw "Hello World!" ]
+// Produces: <h1 class="f3 f1-m f-headline-l">Title</h1>
+```
+
+> Note: [Falco.Markup](https://github.com/pimbrouwers/Falco.Markup) is included for _demonstration purposes only_. It is **not required** to use FsTachyons.
+
+[FsTachyons](https://github.com/nhlpa/FsTachyons) is an F# API for the functional CSS library [Tachyons](https://tachyons.io/).
+
+## Key Features
+
+- Automatically helps build complex class strings, via `tac []`.
+- Facilitates the discoverability of Tachyons classes.
+- Use native F# to produce class strings.
+- Easily extended by creating custom classes.
+
+## Design Goals
+
+- Provide discoverable functions for **all** Tachyons classes.
+- Avoiding placing commonly named functions in the global context.
+- Can be easily learned by someone with knowledge of Tachyons.
+
+## Overview
+
+FsTachyons maps all of the Tachyons CSS classes to functions in the `Tac` module. These types can be "glued" together using the `tac []` helper function.
+
+To escape the characters which are valid in the CSS spec, but not F#, the following augmentations to the Tachyons class are made:
+- Leading `.` is removed (i.e., `.red` becomes `red`).
+- `-` are replaced by `_` (i.e., `.b--red` becomes `b__red`).
+
+## Usage with [Falco.Markup](https://github.com/pimbrouwers/Falco.Markup)
+
+```fsharp
+open Falco.Markup
+open FsTachyons
+
+// <p class="measure lh-copy">Lorem ipsum</p>
+Elem.p [ Attr.class' (tac [Tac.measure; Tac.lh_copy ])]
+       [ Text.raw "Lorem ipsum" ]
+
+// <h1 class="f3 f1-m f-headline-l">Title</h1>
+Elem.h1 [ Attr.class' (tac [ Tac.f3; Tac.f1_m; Tac.f_headline_l ])]
+        [ Text.raw "Hello World!" ]
+
+// <a class="f6 link dim br1 ph3 pv2 mb2 dib white bg-black" href="#0">Button Text</a>
+Elem.a [ Attr.class' (tac [ Tac.f6; Tac.link; Tac.dim; Tac.br1; Tac.ph3; Tac.pv2; Tac.dib; Tac.white; Tac.bg_black ]) ]
+       [ Text.raw "Button Text" ]
+```
+
+## Usage with [Giraffe.ViewEngine](https://github.com/giraffe-fsharp/Giraffe.ViewEngine)
+
+```fsharp
+open FsTachyons
+open Giraffe.ViewEngine
+
+// <p class="measure lh-copy">Lorem ipsum</p>
+p [ _class (tac [Tac.measure; Tac.lh_copy ])]
+  [ rawText "Lorem ipsum" ]
+
+// <h1 class="f3 f1-m f-headline-l">Title</h1>
+h1 [ _class (tac [ Tac.f3; Tac.f1_m; Tac.f_headline_l ])]
+   [ rawText "Hello World!" ]
+
+// <a class="f6 link dim br1 ph3 pv2 mb2 dib white bg-black" href="#0">Button Text</a>
+a [ _class (tac [ Tac.f6; Tac.link; Tac.dim; Tac.br1; Tac.ph3; Tac.pv2; Tac.dib; Tac.white; Tac.bg_black ]) ]
+  [ rawText "Button Text" ]
+```
+
+## Find a bug?
+
+There's an [issue](https://github.com/nhlpa/FsTachyons/issues) for that.
+
+## License
+
+Built with ♥ by [NHLPA Engineering](https://github.com/nhlpa) in Toronto, ON. Licensed under [MIT](https://github.com/nhlpa/Falco.Markup/blob/master/LICENSE).

@@ -55,13 +55,14 @@ let functionSpecs =
     |> Seq.distinctBy (fun (_, className) -> className)
     |> Seq.map (fun (rule, className) ->
         let fnName = className.Replace("-", "_")
+        // let fnName = "``" + className + "``"
         let fnName' = if List.contains fnName reservedWords then fnName + "'" else fnName
-        sprintf "/// %s\nlet %s = TachyonsClass \"%s\"\n" rule fnName' className)
+        sprintf "    /// %s\n    let %s = TachyonsClass \"%s\"\n" rule fnName' className)
 
 let cssClassFunctions =
-    String.Join("\n", functionSpecs)
+    sprintf "module Tac =\n%s" (String.Join("\n", functionSpecs))
 
-let fsTachyonsSrcFile = FileInfo(Path.Join(__SOURCE_DIRECTORY__, "../src/FsTachyons/FsTachyons.fs"))
+let fsTachyonsSrcFile = FileInfo(Path.Join(__SOURCE_DIRECTORY__, "../src/FsTachyons/Core.fs"))
 let fsTachyonsSrcLines = File.ReadAllLines(fsTachyonsSrcFile.FullName)
 
 let mutable continueLooping = true
