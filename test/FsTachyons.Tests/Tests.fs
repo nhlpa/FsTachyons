@@ -24,6 +24,7 @@ module Tests =
         let cls1 = TachyonsClass "a"
         let cls2 = TachyonsClass "b"
 
+        cls1 + cls2 |> string |> should equal "a b"
         tac [ cls1; cls2 ] |> should equal "a b"
 
     [<Fact>]
