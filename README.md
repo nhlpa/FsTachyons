@@ -27,8 +27,8 @@ Elem.h1 [ Attr.class' (tac [ f3; f1_m; f_headline_l ])]
 ## Design Goals
 
 - Provide discoverable functions for **all** Tachyons classes.
-- Avoiding placing commonly named functions in the global context.
-- Can be easily learned by someone with knowledge of Tachyons.
+- Can be integrated into _any_ F# markup DSL.
+- Easily learned by someone with knowledge of Tachyons.
 
 ## Overview
 
