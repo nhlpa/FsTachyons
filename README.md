@@ -1,7 +1,7 @@
 # FsTachyons
 
 [![NuGet Version](https://img.shields.io/nuget/v/FsTachyons.svg)](https://www.nuget.org/packages/FsTachyons)
-[![Build Status](https://travis-ci.org/nhlpa/FsTachyons.svg?branch=master)](https://travis-ci.org/nhlpa/FsTachyons)
+[![build](https://github.com/nhlpa/FsTachyons/actions/workflows/build.yml/badge.svg)](https://github.com/nhlpa/FsTachyons/actions/workflows/build.yml)
 
 ```fsharp
 open Falco.Markup
