@@ -32,13 +32,15 @@ Elem.h1 [ Attr.class' (tac [ f3; f1_m; f_headline_l ])]
 
 ## Overview
 
-FsTachyons maps all of the Tachyons CSS classes to functions in the `Tac` module. These types can be "glued" together using the `tac []` helper function.
+FsTachyons maps all of the Tachyons CSS classes to functions in the `Tac` module. These types can be combined together to form class strings using the `tac []` helper function, or composed using the `+` operator.
 
 To escape the characters which are valid in the CSS spec, but not F#, the following augmentations to the Tachyons class are made:
 - Leading `.` is removed (i.e., `.red` becomes `red`).
 - `-` are replaced by `_` (i.e., `.b--red` becomes `b__red`).
 
 ## Usage with [Falco.Markup](https://github.com/pimbrouwers/Falco.Markup)
+
+Libraries like Falco.Markup, that explicit have element, text and attribute modules, allow us to import the `FsTachyons.Tac` which make class string definitions more terse.
 
 ```fsharp
 open Falco.Markup
@@ -59,6 +61,8 @@ Elem.a [ Attr.class' (tac [ f6; link; dim; br1; ph3; pv2; dib; white; bg_black ]
 ```
 
 ## Usage with [Giraffe.ViewEngine](https://github.com/giraffe-fsharp/Giraffe.ViewEngine)
+
+With Giraffe's approach to HTML generation, we must reference the class functions via the `Tac` module.
 
 ```fsharp
 open FsTachyons
