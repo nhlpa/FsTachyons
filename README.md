@@ -13,9 +13,9 @@ Elem.h1 [ Attr.class' (tac [ f3; f1_m; f_headline_l ])]
 // Produces: <h1 class="f3 f1-m f-headline-l">Title</h1>
 ```
 
-> Note: [Falco.Markup](https://github.com/pimbrouwers/Falco.Markup) is included for _demonstration purposes only_. It is **not required** to use FsTachyons.
+> Note: [Falco.Markup](https://github.com/pimbrouwers/Falco.Markup) is included for _demonstration purposes only_.
 
-[FsTachyons](https://github.com/nhlpa/FsTachyons) is an F# API for the functional CSS library [Tachyons](https://tachyons.io/).
+[FsTachyons](https://github.com/nhlpa/FsTachyons) is an F# API for the functional CSS library [Tachyons](https://tachyons.io/), functional CSS for humans.
 
 ## Key Features
 
@@ -26,8 +26,8 @@ Elem.h1 [ Attr.class' (tac [ f3; f1_m; f_headline_l ])]
 
 ## Design Goals
 
-- Provide discoverable functions for **all** Tachyons classes.
-- Can be integrated into _any_ F# markup DSL.
+- Provide discoverable functions for **_all_** Tachyons classes.
+- Can be integrated into **_any_** F# markup DSL.
 - Easily learned by someone with knowledge of Tachyons.
 
 ## Overview
