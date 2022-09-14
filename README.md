@@ -6,8 +6,9 @@
 ```fsharp
 open Falco.Markup
 open FsTachyons
+open FsTachyons.Tac
 
-Elem.h1 [ Attr.class' (tac [ Tac.f3; Tac.f1_m; Tac.f_headline_l ])]
+Elem.h1 [ Attr.class' (tac [ f3; f1_m; f_headline_l ])]
         [ Text.raw "Hello World!" ]
 // Produces: <h1 class="f3 f1-m f-headline-l">Title</h1>
 ```
@@ -42,17 +43,18 @@ To escape the characters which are valid in the CSS spec, but not F#, the follow
 ```fsharp
 open Falco.Markup
 open FsTachyons
+open FsTachyons.Tac
 
 // <p class="measure lh-copy">Lorem ipsum</p>
-Elem.p [ Attr.class' (tac [Tac.measure; Tac.lh_copy ])]
+Elem.p [ Attr.class' (tac [measure; lh_copy ])]
        [ Text.raw "Lorem ipsum" ]
 
 // <h1 class="f3 f1-m f-headline-l">Title</h1>
-Elem.h1 [ Attr.class' (tac [ Tac.f3; Tac.f1_m; Tac.f_headline_l ])]
+Elem.h1 [ Attr.class' (tac [ f3; f1_m; f_headline_l ])]
         [ Text.raw "Hello World!" ]
 
 // <a class="f6 link dim br1 ph3 pv2 mb2 dib white bg-black" href="#0">Button Text</a>
-Elem.a [ Attr.class' (tac [ Tac.f6; Tac.link; Tac.dim; Tac.br1; Tac.ph3; Tac.pv2; Tac.dib; Tac.white; Tac.bg_black ]) ]
+Elem.a [ Attr.class' (tac [ f6; link; dim; br1; ph3; pv2; dib; white; bg_black ]) ]
        [ Text.raw "Button Text" ]
 ```
 

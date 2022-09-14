@@ -2,13 +2,14 @@
 
 open Falco.Markup
 open FsTachyons
+open FsTachyons.Tac
 
 let x =
-    Elem.a [ Attr.class' (tac [ Tac.f6; Tac.link; Tac.dim; Tac.br1; Tac.ph3; Tac.pv2; Tac.dib; Tac.white; Tac.bg_black ]) ]
+    Elem.a [ Attr.class' (tac [ f6; link; dim; br1; ph3; pv2; dib; white; bg_black ]) ]
            [ Text.raw "Button Text" ]
 
 let divider =
-    Elem.hr [ Attr.class' (tac [ Tac.bt; Tac.b__red ]) ]
+    Elem.hr [ Attr.class' (tac [ bt; b__red ]) ]
 
 let master (title : string) (content : XmlNode list) =
     Elem.html [ Attr.lang "en" ] [
@@ -22,7 +23,7 @@ let master (title : string) (content : XmlNode list) =
 
 let homepage =
     master "Homepage" [
-        Elem.h1 [ Attr.class' (tac [ Tac.f1; Tac.red ]) ] [ Text.raw "Homepage" ]
+        Elem.h1 [ Attr.class' (tac [ f1; red ]) ] [ Text.raw "Homepage" ]
         divider
         Elem.p [] [ Text.raw "Lorem ipsum dolor sit amet."]
     ]
