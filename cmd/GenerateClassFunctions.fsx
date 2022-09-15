@@ -5,9 +5,10 @@ open System.Text.RegularExpressions
 
 //
 // Tachyons
-let buildCdnUrl = "https://raw.githubusercontent.com/tachyons-css/tachyons/master/css/tachyons.css"
-let minifiedCdnUrl = "https://raw.githubusercontent.com/tachyons-css/tachyons/master/css/tachyons.min.css"
+let buildCdnUrl = "https://unpkg.com/tachyons/css/tachyons.css"
+let minifiedCdnUrl = "https://unpkg.com/tachyons/css/tachyons.min.css"
 let http = new HttpClient()
+
 let rawCss = http.GetStringAsync(buildCdnUrl).Result
 
 //
@@ -27,25 +28,28 @@ let functionSpecs =
           "trait"; "virtual" ]
 
     rawCss.Split("\n")
-    |> Seq.map (fun (x : string) -> x.TrimStart()) // trim required to catch nested selectors
-    |> Seq.filter (fun x -> x.StartsWith(".")) // first reduce to "likely" selectors
-    |> Seq.filter (fun x -> Regex.IsMatch(x, @"^\.-?[_a-zA-Z]+[_a-zA-Z0-9-]* {")) // filter more specifically for valid css class names
-    |> Seq.map (fun x ->
-        let startIndex = 1
-        let ruleStartIndex = x.IndexOf("{") - 1
-        let endIndex =
-            let classSepIndex = x.IndexOf(",") |> fun x -> if x > ruleStartIndex then -1 else x
-            let pseudoIndex = x.IndexOf(":") |> fun x -> if x > ruleStartIndex then -1 else x
-            if classSepIndex > 0 then classSepIndex
-            elif pseudoIndex > 0 then pseudoIndex
-            else ruleStartIndex
-        x, x.Substring(startIndex, endIndex).Trim())
-    |> Seq.distinctBy (fun (_, className) -> className)
-    |> Seq.map (fun (rule, className) ->
-        let fnName = className.Replace("-", "_")
-        // let fnName = "``" + className + "``"
+    // trim required to catch nested selectors
+    |> Seq.map (fun (x : string) -> x.TrimStart())
+    // filter more specifically for valid css class name(s), include element
+    // selectors for now
+    |> Seq.filter (fun x -> Regex.IsMatch(x, @"^[\.a-z]-?[_a-zA-Z]+[_a-zA-Z0-9-, \.]* {.+}"))
+    // extract rule with curlies, and yield copy for each individual class selector
+    |> Seq.collect (fun x ->
+        let ruleStartIndex = x.IndexOf("{")
+        let rule = x.Substring(ruleStartIndex)
+
+        x.Substring(0, ruleStartIndex).Trim().Split(",")
+        |> Seq.map (fun (x : string) -> x.Trim())
+        |> Seq.filter (fun (selector : string) -> selector.StartsWith(".") && not(selector.Contains(" ")))
+        |> Seq.map (fun x -> x.Substring(1), rule))
+    // to remove duplicates (i.e., ".pre"), use the last definition
+    |> Seq.groupBy (fun (selector, _) -> selector)
+    |> Seq.map (fun (_, dupes) -> dupes |> Seq.rev |> Seq.head)
+    // clean selector name into f# safe style, output function definition
+    |> Seq.map (fun (selector, rule) ->
+        let fnName = selector.Replace("-", "_")
         let fnName' = if List.contains fnName reservedWords then fnName + "'" else fnName
-        sprintf "    /// %s\n    let %s = TachyonsClass \"%s\"\n" rule fnName' className)
+        sprintf "    /// %s\n    let %s = TachyonsClass \"%s\"\n" rule fnName' selector)
 
 //
 // Output module templates
@@ -70,4 +74,4 @@ let fsTachyonsSrcFile = FileInfo(Path.Join(__SOURCE_DIRECTORY__, "../src/FsTachy
 
 File.WriteAllText(
     fsTachyonsSrcFile.FullName,
-    String.Join("\n\n", "namespace FsTachyons", "open System", tachyonsUrlModule, tachyonsClassesModule))
+    String.Join("\n\n", "namespace FsTachyons", tachyonsUrlModule, tachyonsClassesModule))
