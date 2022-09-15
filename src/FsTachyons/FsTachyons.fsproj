@@ -45,7 +45,6 @@
   <ItemGroup>
     <Compile Include="Core.fs" />
     <Compile Include="Tac.fs" />
-    <Compile Include="Components.fs" />
   </ItemGroup>
 
   <ItemGroup>
