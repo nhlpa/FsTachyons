@@ -4,7 +4,7 @@ open Falco.Markup
 open FsTachyons
 open FsTachyons.Tac
 
-let x =
+let button =
     Elem.a [ Attr.class' (tac [ f6; link; dim; br1; ph3; pv2; dib; white; bg_black ]) ]
            [ Text.raw "Button Text" ]
 
@@ -26,6 +26,7 @@ let homepage =
         Elem.h1 [ Attr.class' (tac [ f1; red ]) ] [ Text.raw "Homepage" ]
         divider
         Elem.p [] [ Text.raw "Lorem ipsum dolor sit amet."]
+        button
     ]
 
 let [<EntryPoint>] main _ =

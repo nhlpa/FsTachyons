@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <OutputType>exe</OutputType>
+    <NoWarn>3391</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Feliz" Version="1.68.*" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../src/FsTachyons/FsTachyons.fsproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+</Project>

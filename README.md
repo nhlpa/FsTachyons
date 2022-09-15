@@ -40,7 +40,7 @@ To escape the characters which are valid in the CSS spec, but not F#, the follow
 
 ## Usage with [Falco.Markup](https://github.com/pimbrouwers/Falco.Markup)
 
-Libraries like Falco.Markup, have explicit modules for elements & attributes, this allows us to import the `FsTachyons.Tac` which make class string definitions more terse.
+Falco.Markup has modules for elements & attributes, this allows us to import the `FsTachyons.Tac` which make class string definitions more terse.
 
 ```fsharp
 open Falco.Markup
@@ -58,6 +58,26 @@ Elem.h1 [ Attr.class' (tac [ f3; f1_m; f_headline_l ])]
 // <a class="f6 link dim br1 ph3 pv2 mb2 dib white bg-black" href="#0">Button Text</a>
 Elem.a [ Attr.class' (tac [ f6; link; dim; br1; ph3; pv2; dib; white; bg_black ]) ]
        [ Text.raw "Button Text" ]
+```
+
+## Usage with [Feliz](https://github.com/Zaid-Ajaj/Feliz)
+
+```fsharp
+open Feliz
+open FsTachyons
+open FsTachyons.Tac
+
+// <p class="measure lh-copy">Lorem ipsum</p>
+Elem.p [ prop.className [ tac [ measure; lh_copy ] ]
+         prop.text "Lorem ipsum" ]
+
+// <h1 class="f3 f1-m f-headline-l">Title</h1>
+Elem.h1 [ prop.className [ tac [ f3; f1_m; f_headline_l ] ]
+          prop.text "Hello World!" ]
+
+// <a class="f6 link dim br1 ph3 pv2 mb2 dib white bg-black" href="#0">Button Text</a>
+Elem.a [ prop.className [ tac [ f6; link; dim; br1; ph3; pv2; dib; white; bg_black ] ]
+         prop.text "Button Text" ]
 ```
 
 ## Usage with [Giraffe.ViewEngine](https://github.com/giraffe-fsharp/Giraffe.ViewEngine)
