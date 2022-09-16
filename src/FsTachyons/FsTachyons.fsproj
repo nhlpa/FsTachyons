@@ -24,7 +24,7 @@
     <PackageId>FsTachyons</PackageId>
     <PackageTags>fsharp;css;tachyons;</PackageTags>
     <PackageProjectUrl>https://github.com/nhlpa/FsTachyons</PackageProjectUrl>
-    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIcon>icon.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
