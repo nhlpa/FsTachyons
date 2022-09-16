@@ -4,7 +4,7 @@
 [![build](https://github.com/nhlpa/FsTachyons/actions/workflows/build.yml/badge.svg)](https://github.com/nhlpa/FsTachyons/actions/workflows/build.yml)
 
 ```fsharp
-open FsTachyons
+open Falco.Markup
 open FsTachyons
 open FsTachyons.Tac
 
