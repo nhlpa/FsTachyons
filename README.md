@@ -4,7 +4,7 @@
 [![build](https://github.com/nhlpa/FsTachyons/actions/workflows/build.yml/badge.svg)](https://github.com/nhlpa/FsTachyons/actions/workflows/build.yml)
 
 ```fsharp
-open Falco.Markup
+open FsTachyons
 open FsTachyons
 open FsTachyons.Tac
 
@@ -13,7 +13,7 @@ Elem.h1 [ Attr.class' (tac [ f3; f1_m; f_headline_l ])]
 // Produces: <h1 class="f3 f1-m f-headline-l">Title</h1>
 ```
 
-> Note: [Falco.Markup](https://github.com/pimbrouwers/Falco.Markup) is included for _demonstration purposes only_.
+> Note: [FsTachyons](https://github.com/pimbrouwers/FsTachyons) is included for _demonstration purposes only_.
 
 [FsTachyons](https://github.com/nhlpa/FsTachyons) is an F# API for the functional CSS library [Tachyons](https://tachyons.io/), functional CSS for humans.
 
@@ -38,12 +38,12 @@ To escape the characters which are valid in the CSS spec, but not F#, the follow
 - Leading `.` is removed (i.e., `.red` becomes `red`).
 - `-` are replaced by `_` (i.e., `.b--red` becomes `b__red`).
 
-## Usage with [Falco.Markup](https://github.com/pimbrouwers/Falco.Markup)
+## Usage with [FsTachyons](https://github.com/pimbrouwers/FsTachyons)
 
-Falco.Markup has modules for elements & attributes, this allows us to import the `FsTachyons.Tac` which make class string definitions more terse.
+FsTachyons has modules for elements & attributes, this allows us to import the `FsTachyons.Tac` which make class string definitions more terse.
 
 ```fsharp
-open Falco.Markup
+open FsTachyons
 open FsTachyons
 open FsTachyons.Tac
 
@@ -107,4 +107,4 @@ There's an [issue](https://github.com/nhlpa/FsTachyons/issues) for that.
 
 ## License
 
-Built with ♥ by [NHLPA Engineering](https://github.com/nhlpa) in Toronto, ON. Licensed under [MIT](https://github.com/nhlpa/Falco.Markup/blob/master/LICENSE).
+Built with ♥ by [NHLPA Engineering](https://github.com/nhlpa) in Toronto, ON. Licensed under [MIT](https://github.com/nhlpa/FsTachyons/blob/master/LICENSE).
