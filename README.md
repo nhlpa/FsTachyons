@@ -1,4 +1,4 @@
-# FsTachyons
+On# FsTachyons
 
 [![NuGet Version](https://img.shields.io/nuget/v/FsTachyons.svg)](https://www.nuget.org/packages/FsTachyons)
 [![build](https://github.com/nhlpa/FsTachyons/actions/workflows/build.yml/badge.svg)](https://github.com/nhlpa/FsTachyons/actions/workflows/build.yml)
@@ -38,7 +38,7 @@ To escape the characters which are valid in the CSS spec, but not F#, the follow
 - Leading `.` is removed (i.e., `.red` becomes `red`).
 - `-` are replaced by `_` (i.e., `.b--red` becomes `b__red`).
 
-## Usage with [FsTachyons](https://github.com/pimbrouwers/FsTachyons)
+## Usage with [Falco.Markup](https://github.com/pimbrouwers/Falco.Markup)
 
 FsTachyons has modules for elements & attributes, this allows us to import the `FsTachyons.Tac` which make class string definitions more terse.
 
