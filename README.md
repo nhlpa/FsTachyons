@@ -13,7 +13,7 @@ Elem.h1 [ Attr.class' (tac [ f3; f1_m; f_headline_l ])]
 // Produces: <h1 class="f3 f1-m f-headline-l">Title</h1>
 ```
 
-> Note: [FsTachyons](https://github.com/pimbrouwers/FsTachyons) is included for _demonstration purposes only_.
+> Note: [Falco.Markup](https://github.com/pimbrouwers/Falco.Markup) is included for _demonstration purposes only_.
 
 [FsTachyons](https://github.com/nhlpa/FsTachyons) is an F# API for the functional CSS library [Tachyons](https://tachyons.io/), functional CSS for humans.
 
