@@ -40,7 +40,7 @@ To escape the characters which are valid in the CSS spec, but not F#, the follow
 
 ## Usage with [Falco.Markup](https://github.com/pimbrouwers/Falco.Markup)
 
-FsTachyons has modules for elements & attributes, this allows us to import the `FsTachyons.Tac` which make class string definitions more terse.
+Falco.Markup has modules for elements & attributes, this allows us to import the `FsTachyons.Tac` which make class string definitions more terse.
 
 ```fsharp
 open FsTachyons
