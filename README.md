@@ -1,4 +1,4 @@
-On# FsTachyons
+# FsTachyons
 
 [![NuGet Version](https://img.shields.io/nuget/v/FsTachyons.svg)](https://www.nuget.org/packages/FsTachyons)
 [![build](https://github.com/nhlpa/FsTachyons/actions/workflows/build.yml/badge.svg)](https://github.com/nhlpa/FsTachyons/actions/workflows/build.yml)
